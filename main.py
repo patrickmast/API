@@ -29,4 +29,5 @@ async def redirect_url(shortcode: str):
         raise HTTPException(status_code=404, detail=f"Shortcode '{shortcode}' not found")
 
     original_url = url_mappings[shortcode]
-    return {"url": original_url}
+    return RedirectResponse(url=original_url)
+   #return {"url": original_url}
