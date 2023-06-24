@@ -17,6 +17,10 @@ def generate_shortcode(length: int = 6) -> str:
 # Dictionary to store shortcode to URL mappings
 url_mappings = {}
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World. Welcome to Patrick's API's!"}
+    
 @app.post("/shorten-url")
 async def shorten_url(url: str):
     shortcode = generate_shortcode()
