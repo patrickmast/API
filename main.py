@@ -47,7 +47,7 @@ async def shorten_url(url: str):
 @app.get("/redirect/{shortcode}")
 async def redirect_url(shortcode: str):
     if shortcode not in url_mappings:
-        raise HTTPException(status_code=404, detail="Shortcode not found")
+        raise HTTPException(status_code=404, detail=f"Shortcode {shortcode} not found")
 
     original_url = url_mappings[shortcode]
     return {"url": original_url}
